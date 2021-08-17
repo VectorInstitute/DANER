@@ -6,6 +6,8 @@ datasets
 seqeval
 tqdm
 baal
+Flask
+flask_cors
 Flask-RESTful
 Flask-MongoAlchemy
 
