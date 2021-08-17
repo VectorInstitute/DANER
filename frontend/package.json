@@ -1,8 +1,8 @@
 {
-  "name": "nera",
+  "name": "DANER",
   "version": "0.0.1",
   "description": "Data Annotation Tool for Name Entity Recognition Task",
-  "productName": "Nera",
+  "productName": "DANER",
   "author": "yongchao97 <yongchao.zhou@mail.utoronto.ca>",
   "private": true,
   "scripts": {

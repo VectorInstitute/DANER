@@ -6,9 +6,7 @@ datasets
 seqeval
 tqdm
 baal
-Flask
 Flask-RESTful
-Flask-SQLAlchemy
 Flask-MongoAlchemy
 
 spacy>=3.0
