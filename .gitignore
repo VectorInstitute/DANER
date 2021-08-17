@@ -3,5 +3,6 @@
 /backend/log
 /backend/tmp
 
-.__pycache__
+env/
+__pycache__/
 .ipynb_checkpoints
