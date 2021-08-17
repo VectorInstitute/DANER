@@ -1,6 +1,5 @@
-# Nera (nera)
-
-Data Annotation Tool for Name Entity Recognition Task
+# DANER Frontend
+Data Annotation Tool for Named Entity Recognition Task
 
 ## Install the dependencies
 ```bash
