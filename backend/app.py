@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
 
-from db import db
+# from db import db
 
 from resources.spacy_service import SpacyService
 from resources.huggingface_service import HuggingFaceService
@@ -25,5 +25,5 @@ api.add_resource(AnnotationServiceScratch, "/annotation_scratch")
 
 if __name__ == '__main__':
     # We plan to use database at first, but it turns out to be unnecessary
-    db.init_app(app)
+    # db.init_app(app)
     app.run(port=5000, debug=True)
