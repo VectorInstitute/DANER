@@ -26,4 +26,4 @@ api.add_resource(AnnotationServiceScratch, "/annotation_scratch")
 if __name__ == '__main__':
     # We plan to use database at first, but it turns out to be unnecessary
     # db.init_app(app)
-    app.run(port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
