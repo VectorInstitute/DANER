@@ -37,6 +37,7 @@ MAX_STEPS = 100
 NUM_LABEL_RETRAIN_MODEL = 10
 MAX_SAMPLES = 32
 MAX_CANDIDATES = 32
+RANDOM_LABELS = 250
 
 
 def get_tokenized_dataset(tokenizer):
@@ -270,7 +271,7 @@ class ALEngine():
         self.res_dict = defaultdict(list)
 
         if need_train:
-            self.active_set.label_randomly(1000)
+            self.active_set.label_randomly(RANDOM_LABELS)
             self.update_model()
 
         self.log_performance()

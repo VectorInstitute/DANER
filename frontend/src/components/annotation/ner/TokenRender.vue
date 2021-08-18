@@ -11,13 +11,13 @@
       <span v-if="token.color !== ''" class="label-entity">
         {{ token.label }}
       </span>
-      <q-tooltip v-if="showConfidence" :offset="[0, 4]">{{
-        token.confidence.toFixed(3)
-      }}</q-tooltip>
     </q-btn>
     <q-banner v-else dense>
       {{ token.token }}
     </q-banner>
+    <q-tooltip v-if="showConfidence" :offset="[0, 4]">{{
+      token.confidence.toFixed(3)
+    }}</q-tooltip>
   </span>
 </template>
 
