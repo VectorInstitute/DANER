@@ -34,10 +34,10 @@ BIO_MAP = {
     "O": 2
 }
 MAX_STEPS = 100
-NUM_LABEL_RETRAIN_MODEL = 20
-MAX_SAMPLES = 100
-MAX_CANDIDATES = 100
-RANDOM_LABELS = 100
+NUM_LABEL_RETRAIN_MODEL = 10
+MAX_SAMPLES = 5000
+MAX_CANDIDATES = 50
+RANDOM_LABELS = 250
 
 
 def get_tokenized_dataset(tokenizer):
@@ -237,7 +237,7 @@ class ALEngine():
         self.active_set = HuggingFaceActiveLearningDataset(
             self.tokenized_datasets["validation"])
 
-        self.heuristic = MNLP(shuffle_prop=0.2)
+        self.heuristic = MNLP(shuffle_prop=0.5)
         self.data_collator = DataCollatorForTokenClassification(self.tokenizer)
         self.training_args = TrainingArguments(
             # output directory

@@ -6,7 +6,7 @@ export default {
     let validEnt = state.ents.concat(["null"]);
 
     payload.forEach(({ token, label, iob, confidence }) => {
-      if (validEnt.includes(label)) {
+      if (validEnt.includes(label) && confidence >= 0.2) {
         autoEnt.push({
           token: token,
           label: label,
@@ -99,7 +99,7 @@ export default {
       if (state.result[id]["label"] === "null") {
         state.result[id] = {
           token: state.result[id]["token"],
-          confidence: 1.00,
+          confidence: 1.0,
           label: state.curEnt,
           iob: 3,
         };
