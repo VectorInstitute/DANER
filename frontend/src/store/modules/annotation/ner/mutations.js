@@ -37,6 +37,12 @@ export default {
   updateModel(state, payload) {
     state.model = payload;
   },
+  updateDataset(state, payload) {
+    state.dataset = payload;
+  },
+  updateAL(state, payload) {
+    state.al = payload;
+  },
   updateEarlyPhaseOn(state, payload) {
     state.earlyPhaseOn = payload;
   },

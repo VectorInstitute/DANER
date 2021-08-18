@@ -7,6 +7,23 @@
     <q-card-section>
       <div class="row" style="">
         <div class="col">
+          <div class="q-gutter-md row">
+            <q-select
+              filled
+              v-model="dataset"
+              :options="ALL_DATASETS"
+              label="Datasets"
+              style="width: 150px"
+            />
+            <q-select
+              filled
+              v-model="model"
+              :options="ALL_MODELS"
+              label="Model"
+              style="width: 150px"
+            />
+          </div>
+          <br />
           <div class="q-gutter-sm">
             <q-checkbox
               v-model="ents"
@@ -36,18 +53,11 @@
 
         <q-separator vertical />
 
-        <div class="col">
+        <div class="col q-ma-sm">
           <div>
-            <q-toggle label="Active Learning" v-model="activeLearningOn" />
             <q-toggle label="Show Confidence" v-model="showConfidence" />
-            <q-toggle label="Early Phase" v-model="earlyPhaseOn" />
-          </div>
-
-          <div>
-            <q-item>
-              <q-item-section side>
-                Confidence Level: 0
-              </q-item-section>
+            <q-item v-if="showConfidence">
+              <q-item-section side> Confidence Level: 0 </q-item-section>
               <q-item-section>
                 <q-slider
                   v-model="autoSuggestStrength"
@@ -60,7 +70,20 @@
             </q-item>
           </div>
 
-          <!-- <div>
+          <div>
+            <div class="q-gutter-md row">
+              <q-toggle label="Active Learning" v-model="activeLearningOn" />
+              <q-select
+                v-if="activeLearningOn"
+                filled
+                v-model="al"
+                :options="ALL_ALS"
+                label="AL Algorithm"
+                style="width: 150px"
+              />
+            </div>
+
+            <!-- <div>
                 <q-item>
                   <q-item-section side>
                     Uncertainty and Diversity Tradeoff: Uncertainty
@@ -71,21 +94,26 @@
                   <q-item-section side> Diversity </q-item-section>
                 </q-item>
               </div> -->
+          </div>
 
-          <div class="q-pa-md">
+          <div class="q-gutter-md">
             <div class="q-gutter-md row items-start">
-              <q-select
-                filled
-                v-model="model"
-                :options="ALL_MODELS"
-                label="Model"
-                style="width: 175px"
-              />
               <q-btn
                 color="primary"
                 label="start"
                 @click="onStartAnnotation"
                 class="q-ma-md"
+              />
+            </div>
+          </div>
+
+          <!-- The following section only appears in demo to show the stage of active learning-->
+          <div v-if="startAnnotation" class="q-mt-md">
+            <q-separator horizontal />
+            <div class="q-mt-md">
+              <q-toggle
+                label="Early Phase (Demo Only)"
+                v-model="earlyPhaseOn"
               />
             </div>
           </div>
@@ -138,7 +166,12 @@ export default {
       },
     });
 
+    const startAnnotation = computed(
+      () => store.state.annotationNer.startAnnotation
+    );
     const ALL_MODELS = store.state.annotationNer.ALL_MODELS;
+    const ALL_DATASETS = store.state.annotationNer.ALL_DATASETS;
+    const ALL_ALS = store.state.annotationNer.ALL_ALS;
     const ALL_ENTS = store.state.annotationNer.ALL_ENTS;
 
     const textRef = ref(null);
@@ -160,6 +193,20 @@ export default {
       get: () => store.state.annotationNer.model,
       set: (val) => {
         store.commit("annotationNer/updateModel", val);
+      },
+    });
+
+    const dataset = computed({
+      get: () => store.state.annotationNer.dataset,
+      set: (val) => {
+        store.commit("annotationNer/updateDataset", val);
+      },
+    });
+
+    const al = computed({
+      get: () => store.state.annotationNer.al,
+      set: (val) => {
+        store.commit("annotationNer/updateAL", val);
       },
     });
 
@@ -220,8 +267,13 @@ export default {
       result,
       ents,
       model,
+      dataset,
+      al,
+      startAnnotation,
       ALL_ENTS,
       ALL_MODELS,
+      ALL_DATASETS,
+      ALL_ALS,
       onSelectALL,
       onSelectDefault,
       onResetLabel,

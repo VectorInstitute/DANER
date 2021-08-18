@@ -6,6 +6,7 @@ Data Annotation Tool for Named Entity Recognition (DANER) using Active Learning 
 
 - Environment
   ```bash
+  # Run at the project root
   export DANER=$(pwd)
   python3 -m pip install --user --upgrade pip
   python3 -m pip --version

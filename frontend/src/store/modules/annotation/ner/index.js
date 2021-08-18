@@ -48,16 +48,25 @@ export default {
         "en_core_web_lg",
         "en_core_web_trf",
       ],
+      ALL_DATASETS: [
+        "CONLL2003",
+      ],
+      ALL_ALS: [
+        "MNLP", // Maximum Normalized Log-Probability
+        "LC" // Least Confidence
+      ],
 
       DEFAULT_ENTS: ["ORG", "PER", "LOC", "MISC"],
       DEFAULT_MODEL: "hf_distillbert",
 
       model: "hf_distillbert",
+      dataset: "CONLL2003",
+      al: "MNLP",
       annotator: "admin",
       ents: ["ORG", "PER", "LOC", "MISC"],
       earlyPhaseOn: true,
-      activeLearningOn: true,
-      showConfidence: true,
+      activeLearningOn: false,
+      showConfidence: false,
       startAnnotation: false,
       autoSuggestStrength: 20,
       tradeoff: 0,
