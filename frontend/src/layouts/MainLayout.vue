@@ -10,7 +10,9 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-        <q-toolbar-title> NERA </q-toolbar-title>
+        <q-toolbar-title> DANER </q-toolbar-title>
+
+        <q-input standout autogrow v-model="baseURL" label="baseURL" type="url"/>
       </q-toolbar>
     </q-header>
 
@@ -138,18 +140,28 @@ const navs = [
   },
 ];
 
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, computed} from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "MainLayout",
 
   setup() {
+    const store = useStore();
+
     const leftDrawerOpen = ref(false);
     const miniState = ref(true);
     const currentPath = ref(null);
     const tabs = [];
+    const baseURL =  computed({
+      get: () => store.state.baseURL,
+      set: (val) => {
+        store.commit("updateBaseURL", val);
+      },
+    });
 
     return {
+      baseURL,
       navs,
       tabs,
       leftDrawerOpen,
