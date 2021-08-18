@@ -177,8 +177,8 @@ class TokenALTransformersTrainer(BaalTransformersTrainer):
         return probs
 
     def get_train_dataloader(self):
-        dataset = deepcopy(self.train_dataset._dataset)
-        dataset.set_format(
+        dataset = deepcopy(self.train_dataset)
+        dataset._dataset.set_format(
             columns=['input_ids', 'attention_mask', 'labels'])
         return DataLoader(
             dataset,
