@@ -23,6 +23,7 @@ from baal.transformers_trainer_wrapper import BaalTransformersTrainer
 from baal.active.heuristics.heuristics import AbstractHeuristic
 
 use_cuda = torch.cuda.is_available()
+print("CUDA availability: {}".format(use_cuda))
 metric = load_metric("seqeval")
 
 DEFAULT_LABEL = ['O', 'B-PER', 'I-PER', 'B-ORG',
@@ -32,7 +33,7 @@ BIO_MAP = {
     "I": 1,
     "O": 2
 }
-MAX_STEPS = 1
+MAX_STEPS = 100
 NUM_LABEL_RETRAIN_MODEL = 10
 MAX_SAMPLES = 32
 MAX_CANDIDATES = 32

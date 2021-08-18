@@ -1,5 +1,6 @@
 # DANER
-Data Annotation Tool for Named Entity Recognition using Active Learning and Transfer Learning
+Data Annotation Tool for Named Entity Recognition (DANER) using Active Learning and Transfer Learning
+- Design Doc: https://docs.google.com/document/d/1zSQbbSxcBhPfIelZi7ElRYUa_8lnOrIdEjPqiBOD-Dk/edit?usp=sharing
 
 # Reproducing
 
