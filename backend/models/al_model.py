@@ -232,7 +232,6 @@ class ALEngine():
         self.hf_model = AutoModelForTokenClassification.from_pretrained(
             model_name, num_labels=len(label_list))
 
-        self.init_weights = deepcopy(self.hf_model.state_dict())
         self.tokenized_datasets = get_tokenized_dataset(self.tokenizer)
         self.active_set = HuggingFaceActiveLearningDataset(
             self.tokenized_datasets["validation"])
@@ -273,6 +272,7 @@ class ALEngine():
         if need_train:
             self.active_set.label_randomly(RANDOM_LABELS)
             self.update_model()
+        self.init_weights = deepcopy(self.hf_model.state_dict())
 
         self.log_performance()
         self.update_candidates()
