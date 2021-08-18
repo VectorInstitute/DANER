@@ -13,8 +13,8 @@ export default {
   },
 
   getContentList(state) {
-    let tmpColor = null;
-    let tmpLabel = null;
+    let tmpColor = "";
+    let tmpLabel = "";
     let childNodes = [];
     let entityToken = [];
     let entityId = [];

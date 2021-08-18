@@ -48,7 +48,6 @@ export default {
   },
   updateAutoSuggestStrength(state, payload) {
     state.autoSuggestStrength = payload;
-    // this.commit("annotationNer/updateResult", state.result)
   },
   updateTradeoff(state, payload) {
     state.tradeoff = payload;
@@ -100,7 +99,7 @@ export default {
       if (state.result[id]["label"] === "null") {
         state.result[id] = {
           token: state.result[id]["token"],
-          confidence: state.result[id]["confidence"],
+          confidence: 1.00,
           label: state.curEnt,
           iob: 3,
         };
