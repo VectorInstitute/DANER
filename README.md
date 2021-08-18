@@ -4,37 +4,36 @@ Data Annotation Tool for Named Entity Recognition (DANER) using Active Learning 
 
 # Reproducing
 
-- Environment
+## Environment
+  - Backend: Make sure you have everything in the `requirement.txt`, otherwise you may want to install them using the following command.
+  
   ```bash
   # Run at the project root
-  export DANER=$(pwd)
-  python3 -m pip install --user --upgrade pip
-  python3 -m pip --version
-  python3 -m pip install --user virtualenv
-  python3 -m venv env
+  python -m venv env
   source env/bin/activate
   pip install -r requirement.txt
-
-  cd $DANER/frontend
+  ```
+  - Frontend: If you want to build the frontend yourself, you need to install the package using the following command.
+  
+  ```bash
+  cd ./frontend
   npm install
   ```
 
+# Run DANER
 - Run DANER on local machine.
-  - Backend: `python $DANER/backend/app.py`
-  - Frontend
-    - Open `$DANER/frontend/dist/spa/index.html` in Browser.
-    - Build the frontend: `quasar build`
-    - Run in development mode: `quasar dev`
+  - Run Backend: `python $DANER/backend/app.py`
+  - Run Frontend
+    - Method 1: Run directly: Open `$DANER/frontend/dist/spa/index.html` in Browser.
+    - Method 2: Build and Run: Build the frontend: `quasar build` and Method 1.
+    - Method 3: Run in development mode: `quasar dev`.
 
 - Run DANER on cluster
-  - Backend (Run on cluster):
-    - `srun --mem=16G -c 4 --gres=gpu:1 -p interactive --qos=high --pty bash`
+  - Run Backend on cluster:
+    - `srun --mem=16G -c 4 --gres=gpu:1 -p interactive --qos=nopreemption --pty bash`
     - `python $DANER/backend/app.py`
   - Setup Vector [VPN](https://support.vectorinstitute.ai/Vaughan_SSL_VPN_and_JupyterHub)
-  - Frontend (Run on local computer)
-    - Open `$DANER/frontend/dist/spa/index.html` in Browser.
-    - Build the frontend: `quasar build`
-    - Run in development mode: `quasar dev`
+  - Run Frontend in the same way as above.
 
 - Note
   - You may need to configure the baseURL in the GUI.
