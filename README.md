@@ -5,7 +5,7 @@ Data Annotation Tool for Named Entity Recognition (DANER) using Active Learning 
 # Reproducing
 
 ## Environment
-  - Backend: Make sure you have everything in the `requirement.txt`, otherwise you may want to install them using the following command.
+  - Backend: Make sure you have all the packages as listed in `requirement.txt`, otherwise you may want to install them using the following command.
   
   ```bash
   # Run at the project root
@@ -13,14 +13,14 @@ Data Annotation Tool for Named Entity Recognition (DANER) using Active Learning 
   source env/bin/activate
   pip install -r requirement.txt
   ```
-  - Frontend: If you want to build the frontend yourself, you need to install the package using the following command.
+  - Frontend: Not necessary. But if you want to build the frontend yourself, you need to install the package using the following command.
   
   ```bash
   cd ./frontend
   npm install
   ```
 
-# Run DANER
+## Run DANER
 - Run DANER on local machine.
   - Run Backend: `python $DANER/backend/app.py`
   - Run Frontend
