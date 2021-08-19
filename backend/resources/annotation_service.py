@@ -43,6 +43,7 @@ class AnnotationServiceScratch(Resource):
 
     def put(self):
         args = AnnotationService.parser.parse_args()
+        print(args.index, args.label, args.annotator)
         self.al_engine.update_dataset(args.index, args.label, args.annotator)
 
         return {"index": args.index}, 201

@@ -1,7 +1,7 @@
 <template>
   <q-card>
     <q-card-section class="bg-primary text-white q-pa-sm" align="center">
-      <div class="text-h4">Configuration</div>
+      <div class="text-h4">Annotation Configuration</div>
     </q-card-section>
 
     <q-card-section>
@@ -55,7 +55,7 @@
 
         <div class="col q-ma-sm">
           <div>
-            <q-toggle label="Show Confidence" v-model="showConfidence" />
+            <q-toggle label="Auto Suggestion" v-model="showConfidence" />
             <q-item v-if="showConfidence">
               <q-item-section side> Confidence Level: 0 </q-item-section>
               <q-item-section>

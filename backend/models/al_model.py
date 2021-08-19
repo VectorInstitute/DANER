@@ -316,8 +316,6 @@ class ALEngine():
         tokens = self.active_set._dataset["tokens"][index]
         word_ids = self.active_set._dataset["word_ids"][index]
 
-        print({k: v for k, v in inp.items()})
-
         inp_cols = ['input_ids', 'attention_mask', 'labels']
         if use_cuda:
             inp = {k: torch.tensor(v).unsqueeze(0).to("cuda")

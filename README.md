@@ -22,16 +22,16 @@ Data Annotation Tool for Named Entity Recognition (DANER) using Active Learning 
 
 ## Run DANER
 - Run DANER on local machine.
-  - Run Backend: `python $DANER/backend/app.py`
+  - Run Backend: `python ./backend/app.py`
   - Run Frontend
-    - Method 1: Run directly: Open `$DANER/frontend/dist/spa/index.html` in Browser.
+    - Method 1: Run directly: Open `./frontend/dist/spa/index.html` in Browser.
     - Method 2: Build and Run: Build the frontend: `quasar build` and Method 1.
     - Method 3: Run in development mode: `quasar dev`.
 
 - Run DANER on cluster
   - Run Backend on cluster:
     - `srun --mem=16G -c 4 --gres=gpu:1 -p interactive --qos=nopreemption --pty bash`
-    - `python $DANER/backend/app.py`
+    - `python ./backend/app.py`
   - Setup Vector [VPN](https://support.vectorinstitute.ai/Vaughan_SSL_VPN_and_JupyterHub)
   - Run Frontend in the same way as above.
 

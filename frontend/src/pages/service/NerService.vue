@@ -3,7 +3,7 @@
     <div class="myContainer">
       <q-card>
         <q-card-section class="bg-primary text-white" align="center">
-          <div class="text-h4">Name Entity Recognition Service</div>
+          <div class="text-h4">Named Entity Recognition Service</div>
         </q-card-section>
         <div class="q-ma-md">
           <div class="q-gutter-sm">
