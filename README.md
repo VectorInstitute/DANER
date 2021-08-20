@@ -1,6 +1,7 @@
 # DANER
-Data Annotation Tool for Named Entity Recognition (DANER) using Active Learning and Transfer Learning
-- Design Doc: https://docs.google.com/document/d/1zSQbbSxcBhPfIelZi7ElRYUa_8lnOrIdEjPqiBOD-Dk/edit?usp=sharing
+Data Annotation Tool for Named Entity Recognition (DANER) using Active Learning and Transfer Learning. For a quick overview of the project, see [slides](./doc/slides_final.pdf). For more details, see [design_doc](./doc/design_doc.pdf).
+
+Disclaimer: This project is a demo rather than a fully functional product. We may or not continue this project in the future.
 
 # Reproducing
 
@@ -36,4 +37,9 @@ Data Annotation Tool for Named Entity Recognition (DANER) using Active Learning 
   - Run Frontend in the same way as above.
 
 - Note
-  - You may need to configure the baseURL in the GUI.
+  - You may need to modify the baseURL in the GUI.
+
+# Project Structure
+We provide the following figure to better understanding of the project structure and modify the conresponding code to satisfy your personal needs.
+
+![project_structure](./doc/asset/project_structure.jpg)
